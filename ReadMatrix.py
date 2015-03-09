@@ -1,14 +1,20 @@
-def readMat(filename):
+def readMatrix(filename):
     matFile = open(filename, 'r')
     mat = []
-    for line in matFile:
-        newRow = line.split(',')
-        for x in range(0, len(newRow)):
-            newRow[x] = float(newRow[x])
-        mat.append(newRow)
-    return mat
+    try:
+        for line in matFile:
+            newRow = line.split(',')
+            for x in range(0, len(newRow)):
+                newRow[x] = float(newRow[x])
+            mat.append(newRow)
+    except:
+        mat = 0
+    if isMatrix(mat):
+        return mat
+    else:
+        return 0
 
-def isMat(a):
+def isMatrix(a):
     try:
         height = len(a)
         width = len(a[0])
@@ -21,11 +27,19 @@ def isMat(a):
     except:
         return False
 
-matA = [[0, 0, 0], [1, 1, 1], [2, 2, 2], [3, 3, 3]]
+def main():
+    try:
+        matrixA = readMatrix("matrixA.csv")
+    except:
+        print("Error: invalid file")
+    
+    if matrixA == 0:
+        print("Error: invalid matrix")
+    else:
+        print("Matrix:")
+        for row in range(0, len(matrixA)):
+            print(matrixA[row])
+    return
 
-print("Matrix:")
-for row in range(0, len(matA)):
-    print(matA[row])
-print("Matrix? " + str(isMat(matA)))
-
-print(readMat("matrixA.csv"))
+if __name__ == "__main__":
+    main()
