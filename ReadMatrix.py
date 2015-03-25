@@ -1,16 +1,15 @@
+import sys
+
 def readMatrix(filename):
     matFile = open(filename, 'r')
     mat = []
     for line in matFile:
-        print(line)
         newRow = line.split(',')
-        print(newRow)
         for x in range(0, len(newRow)):
             if is_number(newRow[x]):            
                 newRow[x] = float(newRow[x])
             else:
                 newRow.remove(newRow[x])
-        print newRow
         mat.append(newRow)
     return mat
 
@@ -35,10 +34,16 @@ def is_number(s):
         return False
 
 def main():
+    if len(sys.argv) < 2:
+        print("Error: no file name provided")
+        return
+    else:
+        filename = sys.argv[1]
     try:
-        matrixA = readMatrix("matrixA.csv")
+        matrixA = readMatrix(filename)
     except:
         print("Error: invalid file")
+        return
     try:
         dim = getDimensions(matrixA)
         if dim:
