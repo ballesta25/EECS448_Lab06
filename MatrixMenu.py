@@ -18,8 +18,8 @@ def printMenu():
 
 #get deafult matrix files
 print("Matrix 1 set to 'matrixA.csv', matrix 2 set to 'matrixB.csv'")
-m1 = ReadMatrix.readMatrix("matrixA.csv")
-m2 = ReadMatrix.readMatrix("matrixB.csv")
+m1 = ReadMatrix.readMatrix("matrix23.csv")
+m2 = ReadMatrix.readMatrix("matrix34.csv")
 
 
 
@@ -28,12 +28,12 @@ while True:
 	printMenu()
 	num = int(raw_input(">"))
 	if 1 == num:
-		if checkMatrices.checkMult(m1,m2):
+		if checkMatrices.checkAdd(m1,m2):
 			print("m1 + m2 = ", addMatrix.add(m1,m2))
 		else:
 			print("Mismatched dimensions. Cannot add.")
 	elif 2 == num:
-		if checkMatrices.checkAdd(m1,m2):
+		if checkMatrices.checkMult(m1,m2):
 			print(multMatrix.mult(m1,m2))
 		else:
 			print("Incorrect dimensions for multiplication.")
