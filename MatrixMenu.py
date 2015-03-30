@@ -16,10 +16,27 @@ def printMenu():
 	print("7) Exit.")
 
 
-#get deafult matrix files
+#Read in first matrix from matrixA
 print("Matrix 1 set to 'matrixA.csv', matrix 2 set to 'matrixB.csv'")
-m1 = ReadMatrix.readMatrix("matrixA.csv")
-m2 = ReadMatrix.readMatrix("matrixB.csv")
+try:
+	m1 = ReadMatrix.readMatrix("matrixA.csv")
+	if (not ReadMatrix.getDimensions(m1)):
+		print("Error with 'matrixA.csv'. Defaulting to 2x2 Identity matrix.")
+		m1 = [[1,0],[0,1]]
+except:
+	print("Error with 'matrixA.csv'. Defaulting to 2x2 Identity matrix.")
+	m1 = [[1,0],[0,1]]
+	
+try:
+	m2 = ReadMatrix.readMatrix("matrixB.csv")
+	if (not ReadMatrix.getDimensions(m2)):
+		print("Error with 'matrixB.csv'. Defaulting to 2x2 Identity matrix.")
+		m2 = [[1,0],[0,1]]
+except:
+	print("Error with 'matrixB.csv'. Defaulting to 2x2 Identity matrix.")
+	m12 = [[1,0],[0,1]]
+
+
 
 
 
