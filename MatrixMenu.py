@@ -18,8 +18,8 @@ def printMenu():
 
 #get deafult matrix files
 print("Matrix 1 set to 'matrixA.csv', matrix 2 set to 'matrixB.csv'")
-m1 = ReadMatrix.readMatrix("matrix23.csv")
-m2 = ReadMatrix.readMatrix("matrix34.csv")
+m1 = ReadMatrix.readMatrix("matrixA.csv")
+m2 = ReadMatrix.readMatrix("matrixB.csv")
 
 
 
